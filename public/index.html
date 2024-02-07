@@ -1,0 +1,44 @@
+<!-- index.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="appTitle">Notis</title>
+</head>
+<body style="background-color: rgb(196, 155, 69);">
+
+<div id="notes-container">
+    <h2 id="pageTitle">Notis</h2>
+    
+    <div class="section-header">Title</div>
+    <input type="text" id="title-input" placeholder="Enter a title">
+    
+    <div class="section-header">Note/Text</div>
+    <input type="text" id="note-input" placeholder="Enter your note">
+    <button onclick="addNote()">Add Note</button>
+    
+    <ul id="note-list"></ul>
+</div>
+
+<script>
+    function addNote() {
+        var titleInput = document.getElementById('title-input');
+        var noteInput = document.getElementById('note-input');
+        var noteList = document.getElementById('note-list');
+
+        var title = titleInput.value;
+        var noteText = noteInput.value;
+
+        titleInput.value = '';
+        noteInput.value = '';
+
+        var listItem = document.createElement('li');
+        listItem.innerHTML = `<strong>${title}</strong>: ${noteText}`;
+        noteList.appendChild(listItem);
+    }
+</script>
+
+</body>
+</html>
