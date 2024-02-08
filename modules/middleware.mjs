@@ -1,11 +1,8 @@
-import express from 'express';
-
-const router = express.Router();
-
-router.use(express.json());
-
-router.use(express.urlencoded({ extended: true }));
 
 
+function logRequest(req, res, next) {
+    console.log(`Received a ${req.method} request to ${req.path} at ${new Date()}`);
+    next();
+}
 
-export default router;  
+export default logRequest;
